@@ -1,60 +1,30 @@
 import java.awt.Color;
 
+public class Pixel{
+	protected Point X; // X coordinates
+	protected Point Y; // Y coordinates
 	
-public class Pixel extends Point{
+	Pixel(int x,  int X_MIN, int X_MAX, int y,int Y_MIN, int Y_MAX){
+		if ((X_MIN<x<<X_MAX)==true) {
+			if ((Y_MIN<y<<Y_MAX)==true) {
+				// Set x and y coordinates of pixel
+				X=new Point("X", X_MIN, X_MAX, x);
+				Y=new Point("Y", Y_MIN, Y_MAX, y);
+			}
+			else {throw new Error ("Y hors limites");}
+		}
+		else {throw new Error ("X hors limites");}
+	}
+	
+	// Return x and y coordinates + color
+	protected String getCoord() {
+		return (X.getName() + " " + X.getPos() + "," + Y.getName() + " " + Y.getPos() + " couleur: " + color);
+	}
+	
+	// Pixel as a color
 	private Color color;
-	static final int MAX_X=2560;
-	static final int MAX_Y=1440;
-	private int oldX;
-	private int oldY;
-	
-	// Getter and setter
 	public Color getColor() {return color;}
 	public void setColor(Color color) {this.color = color;}
-	
-	Pixel(int x, int y)  {
-		// Initialize super class constructor
-		// Must be the first method
-		super(x, y);
-		isInBound();
-		storeOldPositions();
-	}
-	
-	Pixel(int x, int y, Color color)   {
-		// Initialize super class constructor
-		// Must be the first method
-		super(x, y);
-		isInBound();
-		storeOldPositions();
-		this.color=color;
-	}
-	
-	// Move Pixel
-	public void move(int x, int y){
-		// TODO : check before assigning values
-		storeOldPositions();
-		super.x=super.x+x;
-		super.y=super.y+y;
-		isInBound();
-	}
-	
-	private void storeOldPositions() {
-		oldX=super.x;
-		oldY=super.y;
 }
-
-	
-	//Overload method toString of super class Point
-	public String toString() {return (super.toString() + ", couleur :" + color.toString());}
-	
-	private void isInBound() {
-		if (x<0  || x>MAX_X || y<0  || y>MAX_Y)	{outOfBound();}
-	}
-	
-	private void outOfBound() {
-		throw new Error ("Pixel hors bornes / X: " + super.x + " (max:" + MAX_X + "), Y: " + super.y + " (max:" + MAX_Y +")");
-	}
-}
-
 
 

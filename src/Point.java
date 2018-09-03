@@ -1,30 +1,45 @@
 public class Point{
-	protected int x;
-	protected int y;
-	protected int z;
+	// Position
+	protected int pos;
+	protected int oldPos;
+	protected final int MAX_VALUE;
+	protected final int MIN_VALUE;
+	private final String name;
 	
 	// Getter and setter
-	public int getX() {return x;}
-	public void setX(int x) {this.x = x;}
-	public int getY() {return y;}
-	public void setY(int y) {this.y = y;}
-	public int getZ() {return z;}
-	public void setZ(int z) {this.z = z;}
+	public int getPos() {return pos;}
+	public void setPos(int pos) {oldPos=this.pos;this.pos = pos;}
+	public String getName() {return name;}
+	public int getMAX_VALUE() {return MAX_VALUE;}
+	public int getMIN_VALUE() {return MIN_VALUE;}
+	
 	
 	//Constructors
-	Point(int x, int y, int z)  {
-		this.x=x;
-		this.y=y;
-		this.z=z;
-	}
-	Point(int x, int y)  {
-		this.x=x;
-		this.y=y;
-		this.z=0;
+	Point(String name,  int MIN_VALUE , int MAX_VALUE,int pos)  {
+		if (pos>MAX_VALUE || pos<MIN_VALUE) {outOfBoundError(pos);}
+		this.pos=pos;
+		this.name=name;
+		this.MIN_VALUE=MIN_VALUE;
+		this.MAX_VALUE=MAX_VALUE;
 	}
 
+	// Move the point by adding/removing m to his position
+	public void move(int m) {
+		if (this.pos+m < MAX_VALUE || this.pos+m > MIN_VALUE) {
+			oldPos=this.pos;
+			this.pos=this.pos+m;
+		}
+		
+		else
+			{outOfBoundError(pos);}
+	}
 
-	public String toString() {return "X:" + x + ", Y:" + y + ", Z:" + z;}
+	// Point is out of MAX_VALUE
+	private void outOfBoundError(int pos) {
+		throw new Error ("MIN_VALUE < " + pos + "Value " + pos + " > MAX_VALUE " + MAX_VALUE);
+	}
+	
+	public String toString() {return this.name + " position:" + pos;}
 }
 
 
