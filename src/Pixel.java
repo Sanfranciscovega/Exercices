@@ -21,7 +21,7 @@ public class Pixel{
 		return (X.getName() + " " + X.getPos() + "," + Y.getName() + " " + Y.getPos() + " couleur: " + color);
 	}
 	
-	// Pixel as a color
+	// Pixel has a color
 	private Color color;
 	public Color getColor() {return color;}
 	public void setColor(Color color) {this.color = color;}
