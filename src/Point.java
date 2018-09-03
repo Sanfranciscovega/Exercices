@@ -21,6 +21,7 @@ public class Point{
 	public void move(int x, int y){
 		this.x=this.x+x;
 		this.y=this.y+y;
+		this.z=this.z+z;
 	}
 	
 	public String toString() {return "X:" + x + ", Y:" + y + ", Z:" + z;}
