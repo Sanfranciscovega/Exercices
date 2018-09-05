@@ -1,6 +1,7 @@
 package com.flafitte.exercices;
 import java.awt.Color;
 
+// Pixel = 2 coords + one color
 public class Pixel{
 	protected Coord X; // X coordinates
 	protected Coord Y; // Y coordinates

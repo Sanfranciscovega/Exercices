@@ -1,6 +1,6 @@
 package com.flafitte.exercices;
 
-// Coord class
+// Coordinate class
 public class Coord{
 	// Position
 	protected int pos;
