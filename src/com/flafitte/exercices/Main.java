@@ -1,3 +1,4 @@
+package com.flafitte.exercices;
 import java.awt.Color;
 
 

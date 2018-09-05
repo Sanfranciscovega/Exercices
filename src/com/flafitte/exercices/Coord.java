@@ -1,4 +1,7 @@
-public class Point{
+package com.flafitte.exercices;
+
+// Coord class
+public class Coord{
 	// Position
 	protected int pos;
 	protected int oldPos;
@@ -15,7 +18,7 @@ public class Point{
 	
 	
 	//Constructors
-	Point(String name,  int MIN_VALUE , int MAX_VALUE,int pos)  {
+	Coord(String name,  int MIN_VALUE , int MAX_VALUE,int pos)  {
 		if (pos>MAX_VALUE || pos<MIN_VALUE) {outOfBoundError(pos);}
 		this.pos=pos;
 		this.name=name;

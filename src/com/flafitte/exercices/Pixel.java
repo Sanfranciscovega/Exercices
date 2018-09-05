@@ -1,15 +1,16 @@
+package com.flafitte.exercices;
 import java.awt.Color;
 
 public class Pixel{
-	protected Point X; // X coordinates
-	protected Point Y; // Y coordinates
+	protected Coord X; // X coordinates
+	protected Coord Y; // Y coordinates
 	
 	Pixel(int x,  int X_MIN, int X_MAX, int y,int Y_MIN, int Y_MAX){
 		if ((X_MIN<x<<X_MAX)==true) {
 			if ((Y_MIN<y<<Y_MAX)==true) {
 				// Set x and y coordinates of pixel
-				X=new Point("X", X_MIN, X_MAX, x);
-				Y=new Point("Y", Y_MIN, Y_MAX, y);
+				X=new Coord("X", X_MIN, X_MAX, x);
+				Y=new Coord("Y", Y_MIN, Y_MAX, y);
 			}
 			else {throw new Error ("Y hors limites");}
 		}
